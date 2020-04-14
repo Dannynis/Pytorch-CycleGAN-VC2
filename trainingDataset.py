@@ -52,8 +52,8 @@ class trainingDataset(Dataset):
 
 
 if __name__ == '__main__':
-    trainA = np.random.randn(162, 24, 554)
-    trainB = np.random.randn(158, 24, 554)
+    trainA = np.random.randn(162, 48, 554)
+    trainB = np.random.randn(158, 48, 554)
     dataset = trainingDataset(trainA, trainB)
     trainLoader = torch.utils.data.DataLoader(dataset=dataset,
                                               batch_size=2,

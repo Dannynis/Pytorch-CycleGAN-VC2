@@ -61,7 +61,7 @@ class CycleGANTraining:
 
         # Initial learning rates
         self.generator_lr = 0.0002
-        self.discriminator_lr = 0.0001
+        self.discriminator_lr = 0.00001
 
         # Learning rate decay
         self.generator_lr_decay = self.generator_lr / 200000
@@ -128,7 +128,7 @@ class CycleGANTraining:
 
             dataset = trainingDataset(datasetA=self.dataset_A,
                                       datasetB=self.dataset_B,
-                                      n_frames=128)
+                                      n_frames=64)
             train_loader = torch.utils.data.DataLoader(dataset=dataset,
                                                        batch_size=self.mini_batch_size,
                                                        shuffle=True,
@@ -214,7 +214,7 @@ class CycleGANTraining:
                 d_loss_B = (d_loss_B_real + d_loss_B_fake) / 2.0
 
                 # Final Loss for discriminator
-                d_loss = (d_loss_A + d_loss_B) / 2.0
+                d_loss = (d_loss_A + d_loss_B) 
                 self.discriminator_loss_store.append(d_loss.item())
 
                 # Backprop for Discriminator
@@ -261,8 +261,8 @@ class CycleGANTraining:
                     validation_end_time - validation_start_time))
 
     def validation_for_A_dir(self):
-        num_mcep = 24
-        sampling_rate = 16000
+        num_mcep = 48
+        sampling_rate = 44100
         frame_period = 5.0
         n_frames = 128
         validation_A_dir = self.validation_A_dir
@@ -314,8 +314,8 @@ class CycleGANTraining:
                                      sr=sampling_rate)
 
     def validation_for_B_dir(self):
-        num_mcep = 24
-        sampling_rate = 16000
+        num_mcep = 48
+        sampling_rate = 44100
         frame_period = 5.0
         n_frames = 128
         validation_B_dir = self.validation_B_dir
