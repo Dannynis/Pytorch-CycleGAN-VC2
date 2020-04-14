@@ -182,7 +182,7 @@ class Generator(nn.Module):
                                                 stride=2,
                                                 padding=2)
         #reshape
-        self.conv2 = nn.Conv1d(in_channels=3072,
+        self.conv2 = nn.Conv1d(in_channels=6144,
                                out_channels=512,
                                kernel_size=1,
                                stride=1)
@@ -220,7 +220,7 @@ class Generator(nn.Module):
                                             padding=1)
         #reshape
         self.conv3 = nn.Conv1d(in_channels=512,
-                               out_channels=3072,
+                               out_channels=6144,
                                kernel_size=1,
                                stride=1)
 
