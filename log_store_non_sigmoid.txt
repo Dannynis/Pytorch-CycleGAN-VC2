@@ -1,0 +1,16 @@
+Iter:0	 Generator Loss:25.1114 Discrimator Loss:0.5089 	GA2B:0.2584 GB2A:0.2641 G_id:1.6331 G_cyc:1.6423 D_A:0.2563 D_B:0.2526
+Epoch: 0 Generator Loss: 25.1114 Discriminator Loss: 0.5088990926742554, Time: 32.64
+
+
+Iter:0	 Generator Loss:29.4930 Discrimator Loss:0.5017 	GA2B:0.2587 GB2A:0.2552 G_id:1.8880 G_cyc:1.9539 D_A:0.2501 D_B:0.2516
+Epoch: 1 Generator Loss: 29.4930 Discriminator Loss: 0.5017001628875732, Time: 113.82
+
+
+Iter:0	 Generator Loss:25.3157 Discrimator Loss:0.5138 	GA2B:0.2596 GB2A:0.2602 G_id:1.6546 G_cyc:1.6523 D_A:0.2585 D_B:0.2554
+Epoch: 0 Generator Loss: 25.3157 Discriminator Loss: 0.5138185620307922, Time: 82.23
+
+
+Iter:0	 Generator Loss:24.4366 Discrimator Loss:0.5110 	GA2B:0.2520 GB2A:0.2554 G_id:1.5972 G_cyc:1.5943 D_A:0.2554 D_B:0.2556
+Epoch: 0 Generator Loss: 24.4366 Discriminator Loss: 0.5110394358634949, Time: 35.64
+
+

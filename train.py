@@ -214,7 +214,7 @@ class CycleGANTraining:
                 d_loss_B = (d_loss_B_real + d_loss_B_fake) / 2.0
 
                 # Final Loss for discriminator
-                d_loss = (d_loss_A + d_loss_B) 
+                d_loss = (d_loss_A + d_loss_B)
                 self.discriminator_loss_store.append(d_loss.item())
 
                 # Backprop for Discriminator
@@ -262,7 +262,7 @@ class CycleGANTraining:
 
     def validation_for_A_dir(self):
         num_mcep = 48
-        sampling_rate = 44100
+        sampling_rate = 16000
         frame_period = 5.0
         n_frames = 128
         validation_A_dir = self.validation_A_dir
@@ -315,7 +315,7 @@ class CycleGANTraining:
 
     def validation_for_B_dir(self):
         num_mcep = 48
-        sampling_rate = 44100
+        sampling_rate = 16000
         frame_period = 5.0
         n_frames = 128
         validation_B_dir = self.validation_B_dir
@@ -416,19 +416,19 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description="Train CycleGAN using source dataset and target dataset")
 
-    logf0s_normalization_default = '../cache/logf0s_normalization.npz'
-    mcep_normalization_default = '../cache/mcep_normalization.npz'
-    coded_sps_A_norm = '../cache/coded_sps_A_norm.pickle'
-    coded_sps_B_norm = '../cache/coded_sps_B_norm.pickle'
-    model_checkpoint = '../cache/model_checkpoint/'
-    resume_training_at = '../cache/model_checkpoint/_CycleGAN_CheckPoint'
+    logf0s_normalization_default = './cache_check_test/logf0s_normalization.npz'
+    mcep_normalization_default = './cache_check_test/mcep_normalization.npz'
+    coded_sps_A_norm = './cache_check_test/coded_sps_A_norm.pickle'
+    coded_sps_B_norm = './cache_check_test/coded_sps_B_norm.pickle'
+    model_checkpoint = './cache_check_test/model_checkpoint/'
+    resume_training_at = './cache_check_test/model_checkpoint/_CycleGAN_CheckPoint'
     resume_training_at = None
 
-    validation_A_dir_default = '../data/vcc2016_training/evaluation_all/SF1/'
-    output_A_dir_default = '../data/vcc2016_training/converted_sound/SF1'
+    validation_A_dir_default = '/media/dan/Disk/ml+dl+dsp/Pytorch-CycleGAN-VC2/test_44k/bible'
+    output_A_dir_default = './'
 
-    validation_B_dir_default = '../data/vcc2016_training/evaluation_all/TF2/'
-    output_B_dir_default = '../data/vcc2016_training/converted_sound/TF2/'
+    validation_B_dir_default = '/media/dan/Disk/ml+dl+dsp/Pytorch-CycleGAN-VC2/test_44k/nas'
+    output_B_dir_default = './'
 
     parser.add_argument('--logf0s_normalization', type=str,
                         help="Cached location for log f0s normalized", default=logf0s_normalization_default)
