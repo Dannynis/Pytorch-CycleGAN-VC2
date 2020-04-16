@@ -262,7 +262,7 @@ class CycleGANTraining:
 
     def validation_for_A_dir(self):
         num_mcep = 48
-        sampling_rate = 16000
+        sampling_rate = 44000
         frame_period = 5.0
         n_frames = 128
         validation_A_dir = self.validation_A_dir
@@ -315,7 +315,7 @@ class CycleGANTraining:
 
     def validation_for_B_dir(self):
         num_mcep = 48
-        sampling_rate = 16000
+        sampling_rate = 44000
         frame_period = 5.0
         n_frames = 128
         validation_B_dir = self.validation_B_dir

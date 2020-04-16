@@ -20,7 +20,7 @@ def load_pickle_file(fileName):
 
 def preprocess_for_training(train_A_dir, train_B_dir, cache_folder):
     num_mcep = 48
-    sampling_rate = 16000
+    sampling_rate = 44000
     frame_period = 5.0
     n_frames = 128
 
@@ -81,9 +81,9 @@ def preprocess_for_training(train_A_dir, train_B_dir, cache_folder):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Prepare data for training Cycle GAN using PyTorch')
-    train_A_dir_default = '/media/dan/Disk/ml+dl+dsp/Pytorch-CycleGAN-VC2/train_44k/bible/'
+    train_A_dir_default = '/media/dan/Disk/ml+dl+dsp/Pytorch-CycleGAN-VC2/train_44k/podcast/'
     train_B_dir_default = '/media/dan/Disk/ml+dl+dsp/Pytorch-CycleGAN-VC2/train_44k/nas'
-    cache_folder_default = './cache_check_16k/'
+    cache_folder_default = './cache_check_podcast_nas_44k/'
 
     parser.add_argument('--train_A_dir', type=str,
                         help="Directory for source voice sample", default=train_A_dir_default)

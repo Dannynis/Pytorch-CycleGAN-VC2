@@ -618,7 +618,7 @@ Epoch: 97 Generator Loss: 7.8354 Discriminator Loss: 0.05627860873937607, Time: 
 
 Iter:15900	 Generator Loss:8.0925 Discrimator Loss:0.0252 	GA2B:1.1817 GB2A:1.2931 G_id:1.2881 G_cyc:0.5618 D_A:0.0294 D_B:0.0211
 Iter:15950	 Generator Loss:7.5698 Discrimator Loss:0.0398 	GA2B:0.9104 GB2A:1.0031 G_id:1.2212 G_cyc:0.5656 D_A:0.0569 D_B:0.0227
-Iter:16000	 Generator Loss:7.7570 Discrimator Loss:0.0384 	GA2B:1.1875 GB2A:1.0064 G_id:1.1878 G_cyc:0.5563 D_A:0.0437 D_B:0.0332
+Iter:44000	 Generator Loss:7.7570 Discrimator Loss:0.0384 	GA2B:1.1875 GB2A:1.0064 G_id:1.1878 G_cyc:0.5563 D_A:0.0437 D_B:0.0332
 Epoch: 98 Generator Loss: 7.3116 Discriminator Loss: 0.0317540243268013, Time: 84.33
 
 
