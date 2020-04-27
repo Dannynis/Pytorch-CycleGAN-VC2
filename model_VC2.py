@@ -188,32 +188,32 @@ class Generator(nn.Module):
                                stride=1)
 
         # Residual Blocks
-        self.residualLayer1 = ResidualLayer(in_channels=512,
+        self.residualLayer1 = ResidualLayer(in_channels=48,
                                             out_channels=1024,
                                             kernel_size=3,
                                             stride=1,
                                             padding=1)
-        self.residualLayer2 = ResidualLayer(in_channels=512,
+        self.residualLayer2 = ResidualLayer(in_channels=48,
                                             out_channels=1024,
                                             kernel_size=3,
                                             stride=1,
                                             padding=1)
-        self.residualLayer3 = ResidualLayer(in_channels=512,
+        self.residualLayer3 = ResidualLayer(in_channels=48,
                                             out_channels=1024,
                                             kernel_size=3,
                                             stride=1,
                                             padding=1)
-        self.residualLayer4 = ResidualLayer(in_channels=512,
+        self.residualLayer4 = ResidualLayer(in_channels=48,
                                             out_channels=1024,
                                             kernel_size=3,
                                             stride=1,
                                             padding=1)
-        self.residualLayer5 = ResidualLayer(in_channels=512,
+        self.residualLayer5 = ResidualLayer(in_channels=48,
                                             out_channels=1024,
                                             kernel_size=3,
                                             stride=1,
                                             padding=1)
-        self.residualLayer6 = ResidualLayer(in_channels=512,
+        self.residualLayer6 = ResidualLayer(in_channels=48,
                                             out_channels=1024,
                                             kernel_size=3,
                                             stride=1,
@@ -246,19 +246,19 @@ class Generator(nn.Module):
 
     def forward(self, input):
         # GLU
-        input = input.unsqueeze(1)
-
-        conv1 = self.conv1(input) * torch.sigmoid(self.conv1_gates(input))
-
-        downsample1 = self.downSample1(conv1)
+        # input = input.unsqueeze(1)
+        #
+        # conv1 = self.conv1(input) * torch.sigmoid(self.conv1_gates(input))
+        #
+        # downsample1 = self.downSample1(conv1)
+        #
+        # downsample2 = self.downSample2(downsample1)
+        #
+        # downsample3 = downsample2.view([downsample2.shape[0],-1,downsample2.shape[3]])
+        #
+        # downsample3 = self.conv2(downsample3)
         
-        downsample2 = self.downSample2(downsample1)
-        
-        downsample3 = downsample2.view([downsample2.shape[0],-1,downsample2.shape[3]])
-        
-        downsample3 = self.conv2(downsample3)
-        
-        residual_layer_1 = self.residualLayer1(downsample3)
+        residual_layer_1 = self.residualLayer1(input)
         
         residual_layer_2 = self.residualLayer2(residual_layer_1)
         
@@ -268,19 +268,19 @@ class Generator(nn.Module):
         
         residual_layer_5 = self.residualLayer5(residual_layer_4)
         
-        residual_layer_6 = self.residualLayer6(residual_layer_5)
+        output = self.residualLayer6(residual_layer_5)
         
-        residual_layer_6 = self.conv3(residual_layer_6)
-        
-        residual_layer_6 = residual_layer_6.view([downsample2.shape[0],downsample2.shape[1],downsample2.shape[2],downsample2.shape[3]])
-        
-        upSample_layer_1 = self.upSample1(residual_layer_6)
-        
-        upSample_layer_2 = self.upSample2(upSample_layer_1)
-        
-        output = self.lastConvLayer(upSample_layer_2)
-        
-        output = output.view([output.shape[0],-1,output.shape[3]])
+        # residual_layer_6 = self.conv3(residual_layer_6)
+        #
+        # residual_layer_6 = residual_layer_6.view([downsample2.shape[0],downsample2.shape[1],downsample2.shape[2],downsample2.shape[3]])
+        #
+        # upSample_layer_1 = self.upSample1(residual_layer_6)
+        #
+        # upSample_layer_2 = self.upSample2(upSample_layer_1)
+        #
+        # output = self.lastConvLayer(upSample_layer_2)
+        #
+        # output = output.view([output.shape[0],-1,output.shape[3]])
         return output
 
 
