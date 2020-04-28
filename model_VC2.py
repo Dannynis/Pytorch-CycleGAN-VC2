@@ -189,32 +189,52 @@ class Generator(nn.Module):
 
         # Residual Blocks
         self.residualLayer1 = ResidualLayer(in_channels=48,
-                                            out_channels=1024,
+                                            out_channels=2048,
                                             kernel_size=3,
                                             stride=1,
                                             padding=1)
         self.residualLayer2 = ResidualLayer(in_channels=48,
-                                            out_channels=1024,
+                                            out_channels=2048,
                                             kernel_size=3,
                                             stride=1,
                                             padding=1)
         self.residualLayer3 = ResidualLayer(in_channels=48,
-                                            out_channels=1024,
+                                            out_channels=2048,
                                             kernel_size=3,
                                             stride=1,
                                             padding=1)
         self.residualLayer4 = ResidualLayer(in_channels=48,
-                                            out_channels=1024,
+                                            out_channels=2048,
                                             kernel_size=3,
                                             stride=1,
                                             padding=1)
         self.residualLayer5 = ResidualLayer(in_channels=48,
-                                            out_channels=1024,
+                                            out_channels=2048,
                                             kernel_size=3,
                                             stride=1,
                                             padding=1)
         self.residualLayer6 = ResidualLayer(in_channels=48,
-                                            out_channels=1024,
+                                            out_channels=2048,
+                                            kernel_size=3,
+                                            stride=1,
+                                            padding=1)
+        self.residualLayer7 = ResidualLayer(in_channels=48,
+                                            out_channels=2048,
+                                            kernel_size=3,
+                                            stride=1,
+                                            padding=1)
+        self.residualLayer8 = ResidualLayer(in_channels=48,
+                                            out_channels=2048,
+                                            kernel_size=3,
+                                            stride=1,
+                                            padding=1)
+        self.residualLayer9 = ResidualLayer(in_channels=48,
+                                            out_channels=2048,
+                                            kernel_size=3,
+                                            stride=1,
+                                            padding=1)
+        self.residualLayer10 = ResidualLayer(in_channels=48,
+                                            out_channels=2048,
                                             kernel_size=3,
                                             stride=1,
                                             padding=1)
@@ -267,8 +287,10 @@ class Generator(nn.Module):
         residual_layer_4 = self.residualLayer4(residual_layer_3)
         
         residual_layer_5 = self.residualLayer5(residual_layer_4)
+
+
         
-        output = self.residualLayer6(residual_layer_5)
+        output = self.residualLayer10(self.residualLayer9(self.residualLayer8(self.residualLayer7(self.residualLayer6(residual_layer_5)))))
         
         # residual_layer_6 = self.conv3(residual_layer_6)
         #
