@@ -218,19 +218,21 @@ class CycleGANTraining:
                 self.discriminator_loss_store.append(d_loss.item())
 
                 # Backprop for Discriminator
-                self.reset_grad()
-                d_loss.backward()
+                if d_loss > 0.05:
+                    self.reset_grad()
+                    d_loss.backward()
 
-                # if num_iterations > self.start_decay:  # Linearly decay learning rate
-                #     self.adjust_lr_rate(
-                #         self.discriminator_optimizer, name='discriminator')
+                    # if num_iterations > self.start_decay:  # Linearly decay learning rate
+                    #     self.adjust_lr_rate(
+                    #         self.discriminator_optimizer, name='discriminator')
 
-                self.discriminator_optimizer.step()
+                    self.discriminator_optimizer.step()
                 if num_iterations % 50 == 0:
                     store_to_file = "Iter:{}\t Generator Loss:{:.4f} Discrimator Loss:{:.4f} \tGA2B:{:.4f} GB2A:{:.4f} G_id:{:.4f} G_cyc:{:.4f} D_A:{:.4f} D_B:{:.4f}".format(
                         num_iterations, generator_loss.item(), d_loss.item(), generator_loss_A2B, generator_loss_B2A, identiyLoss, cycleLoss, d_loss_A, d_loss_B)
                     print("Iter:{}\t Generator Loss:{:.4f} Discrimator Loss:{:.4f} \tGA2B:{:.4f} GB2A:{:.4f} G_id:{:.4f} G_cyc:{:.4f} D_A:{:.4f} D_B:{:.4f}".format(
                         num_iterations, generator_loss.item(), d_loss.item(), generator_loss_A2B, generator_loss_B2A, identiyLoss, cycleLoss, d_loss_A, d_loss_B))
+                    print ('D_A_R:{} D_A_F:{} D_B_R:{} D_B_F:{}'.format(d_loss_A_real,d_loss_A_fake,d_loss_B_real,d_loss_B_fake))
                     self.store_to_file(store_to_file)
             end_time = time.time()
             store_to_file = "Epoch: {} Generator Loss: {:.4f} Discriminator Loss: {}, Time: {:.2f}\n\n".format(
