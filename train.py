@@ -178,7 +178,7 @@ class CycleGANTraining:
                 generator_loss_B2A = torch.mean((1 - d_fake_A) ** 2)
 
                 # Total Generator Loss
-                generator_loss = generator_loss_A2B + generator_loss_B2A + \
+                generator_loss = (generator_loss_A2B + generator_loss_B2A) * 4 + \
                     cycle_loss_lambda * cycleLoss + identity_loss_lambda * identiyLoss
                 self.generator_loss_store.append(generator_loss.item())
 
@@ -241,7 +241,7 @@ class CycleGANTraining:
             print("Epoch: {} Generator Loss: {:.4f} Discriminator Loss: {}, Time: {:.2f}\n\n".format(
                 epoch, generator_loss.item(), d_loss.item(), end_time - start_time_epoch))
 
-            if epoch % 100 == 0 and epoch != 0:
+            if epoch % 10 == 0 and epoch != 0:
                 # Save the Entire model
                 print("Saving model Checkpoint  ......")
                 store_to_file = "Saving model Checkpoint  ......"
@@ -250,7 +250,7 @@ class CycleGANTraining:
                     self.modelCheckpoint + '_CycleGAN_CheckPoint'))
                 print("Model Saved!")
 
-            if epoch % 100 == 0 and epoch != 0:
+            if epoch % 10 == 0 and epoch != 0:
                 # Validation Set
                 validation_start_time = time.time()
                 self.validation_for_A_dir()
